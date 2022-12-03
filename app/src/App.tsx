@@ -4,6 +4,9 @@ import Clinics from "./modules/Clinics/Clinics";
 
 const Container = styled.div`
   padding: 0 50px;
+  @media (max-width: 786px) {
+    padding: 0 5px;
+  }
 `;
 function App() {
   return (

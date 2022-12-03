@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { IPatient } from "../../../types";
+import { Sort } from "../Clinics";
 
 const Table = styled.table`
   width: 100%;
@@ -7,6 +9,7 @@ const Table = styled.table`
   border-collapse: collapse;
 `;
 const TableHead = styled.thead``;
+const TableBody = styled.tbody``;
 const TableHeadCell = styled.th`
   border: 1px solid black;
   border-collapse: collapse;
@@ -18,37 +21,42 @@ const TableRow = styled.tr`
 const TableData = styled.td`
   border: 1px solid grey;
 `;
-const PatientsTable = () => {
+
+const PatientsTable = ({
+  patients,
+  sortType,
+}: {
+  patients: IPatient[];
+  sortType: Sort;
+}) => {
+  if (!patients.length) return null;
+  const sortedPatients = patients.sort((a, b) =>
+    sortType === Sort.ASCENDING
+      ? Date.parse(a.date_of_birth) - Date.parse(b.date_of_birth)
+      : sortType === Sort.DESCENDING
+      ? Date.parse(b.date_of_birth) - Date.parse(a.date_of_birth)
+      : +a.id - +b.id
+  );
   return (
     <Table>
       <TableHead>
         <TableRow>
-          <TableHeadCell>1</TableHeadCell>
-          <TableHeadCell>2</TableHeadCell>
-          <TableHeadCell>3</TableHeadCell>
-          <TableHeadCell>4</TableHeadCell>
+          <TableHeadCell>Id</TableHeadCell>
+          <TableHeadCell>First name</TableHeadCell>
+          <TableHeadCell>Last name</TableHeadCell>
+          <TableHeadCell>Date of birth</TableHeadCell>
         </TableRow>
       </TableHead>
-      <tbody>
-        <TableRow>
-          <TableData>1</TableData>
-          <TableData>1</TableData>
-          <TableData>1</TableData>
-          <TableData>1</TableData>
-        </TableRow>
-        <TableRow>
-          <TableData>2</TableData>
-          <TableData>2</TableData>
-          <TableData>2</TableData>
-          <TableData>2</TableData>
-        </TableRow>
-        <TableRow>
-          <TableData>3</TableData>
-          <TableData>3</TableData>
-          <TableData>3</TableData>
-          <TableData>3</TableData>
-        </TableRow>
-      </tbody>
+      <TableBody>
+        {sortedPatients.map((patient) => (
+          <TableRow>
+            <TableData>{patient.id}</TableData>
+            <TableData>{patient.first_name}</TableData>
+            <TableData>{patient.last_name}</TableData>
+            <TableData>{patient.date_of_birth}</TableData>
+          </TableRow>
+        ))}
+      </TableBody>
     </Table>
   );
 };
