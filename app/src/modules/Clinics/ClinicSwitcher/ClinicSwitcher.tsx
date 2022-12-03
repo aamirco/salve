@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { fetchClinics } from "../../../api/clinics";
+import { IClinic } from "../../../types";
 
 const ClinicSwitcherWrapper = styled.div`
   display: flex;
@@ -16,17 +18,22 @@ const Button = styled.button<IButton>`
   border-radius: 5px;
   padding: 5px 10px;
 `;
-const clinics = ["clinic1", "clinic2"];
 const ClinicSwitcher = () => {
-  const [selectedClinic, setSelectedClinic] = useState("");
+  const [selectedClinic, setSelectedClinic] = useState(0);
+  const [clinics, setClinics] = useState<IClinic[]>([]);
+  useEffect(() => {
+    fetchClinics().then((res) => setClinics(res));
+  }, []);
   return (
     <ClinicSwitcherWrapper>
+      <p>Select clinic:</p>
       {clinics.map((clinic) => (
         <Button
-          selected={clinic === selectedClinic}
-          onClick={() => setSelectedClinic(clinic)}
+          key={clinic.id}
+          selected={clinic.id === selectedClinic}
+          onClick={() => setSelectedClinic(clinic.id)}
         >
-          {clinic}
+          {clinic.name}
         </Button>
       ))}
     </ClinicSwitcherWrapper>
