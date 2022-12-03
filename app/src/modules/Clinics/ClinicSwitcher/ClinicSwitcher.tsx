@@ -18,12 +18,16 @@ const Button = styled.button<IButton>`
   border-radius: 5px;
   padding: 5px 10px;
 `;
-const ClinicSwitcher = () => {
-  const [selectedClinic, setSelectedClinic] = useState(0);
-  const [clinics, setClinics] = useState<IClinic[]>([]);
-  useEffect(() => {
-    fetchClinics().then((res) => setClinics(res));
-  }, []);
+interface IClinicSwitcher {
+  selectedClinic: string;
+  setSelectedClinic: (selectedClinic: string) => void;
+  clinics: IClinic[];
+}
+const ClinicSwitcher = ({
+  selectedClinic,
+  setSelectedClinic,
+  clinics,
+}: IClinicSwitcher) => {
   return (
     <ClinicSwitcherWrapper>
       <p>Select clinic:</p>
