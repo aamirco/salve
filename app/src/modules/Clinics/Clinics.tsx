@@ -25,9 +25,7 @@ const Clinics = () => {
           setSelectedClinic={setSelectedClinic}
           clinics={clinics}
         />
-        {!!patients.length && (
-          <SortSelector data-test="sort-selector" setSortType={setSortType} />
-        )}
+        {!!patients.length && <SortSelector setSortType={setSortType} />}
       </div>
       <PatientsTable patients={patients} sortType={sortType} />
     </ClinicsWrapper>

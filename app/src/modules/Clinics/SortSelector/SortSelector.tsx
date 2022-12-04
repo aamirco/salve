@@ -7,7 +7,11 @@ const Select = styled.select`
   height: 24px;
   width: 50px;
 `;
-const SortSelector = ({ setSortType }: any) => {
+const SortSelector = ({
+  setSortType,
+}: {
+  setSortType: (arg0: Sort) => void;
+}) => {
   return (
     <Select
       onChange={(e) => {

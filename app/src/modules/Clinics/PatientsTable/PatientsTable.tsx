@@ -49,7 +49,7 @@ const PatientsTable = ({
       </TableHead>
       <TableBody>
         {sortedPatients.map((patient) => (
-          <TableRow>
+          <TableRow key={patient.id}>
             <TableData>{patient.id}</TableData>
             <TableData>{patient.first_name}</TableData>
             <TableData>{patient.last_name}</TableData>

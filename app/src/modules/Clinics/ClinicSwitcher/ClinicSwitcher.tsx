@@ -1,22 +1,6 @@
-import styled from "styled-components";
 import { IClinic } from "../../../types";
+import { Button, ClinicSwitcherWrapper } from "./styled";
 
-const ClinicSwitcherWrapper = styled.div`
-  display: flex;
-`;
-interface IButton {
-  selected: boolean;
-}
-const Button = styled.button<IButton>`
-  border: 1px solid #8665e3;
-  background-color: ${(props) => (props.selected ? "#8665e3" : "white")};
-  color: ${(props) => (props.selected ? "white" : "#8665e3")};
-  font-size: 16px;
-  margin: 10px;
-  margin-left: 0px;
-  border-radius: 5px;
-  padding: 5px 10px;
-`;
 interface IClinicSwitcher {
   selectedClinic: string;
   setSelectedClinic: (selectedClinic: string) => void;
