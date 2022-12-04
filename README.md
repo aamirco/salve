@@ -1,46 +1,32 @@
 # Salve test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I have kept this solution as simple as I could as per the brief.
 
-## Available Scripts
+## Backend
 
-In the project directory, you can run:
+For the back end I have used a simple node.js and express set up which reads the csv files and exposes via 2 endpoints. One for clinics and one for patients.
 
-### `npm start`
+To run the back end, in the server directory, run:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `yarn start`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Front end
 
-### `npm test`
+The front end is a cra react app with some custom hooks for managing data fetching from the backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I used styled-components for the styling
+To run the front end, in the app directory, run:
 
-### `npm run build`
+### `yarn start`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run tests, in the app directory, run:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `yarn start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Backend
 
-### `npm run eject`
+## If I were to continue spending time on this task, I would:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+-test
+-test
+-test
