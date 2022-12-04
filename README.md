@@ -27,6 +27,10 @@ To run tests, in the app directory, run:
 
 ## If I were to continue spending time on this task, I would:
 
--test
--test
--test
+- add pagination to the patients list in the backend, with lazy loading/infinite scrolling in the front end
+
+- add end to end testing with cypress
+
+- add more tests for full coverage
+
+- add more tests for full coverage
